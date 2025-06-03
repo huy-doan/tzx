@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"github.com/makeshop-jp/master-console/internal/pkg/logger"
+	"github.com/test-tzs/nomraeite/internal/pkg/logger"
 	"gorm.io/gorm"
 )
 

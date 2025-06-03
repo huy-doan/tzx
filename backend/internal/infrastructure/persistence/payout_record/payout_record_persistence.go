@@ -3,9 +3,9 @@ package persistence
 import (
 	"context"
 
-	repository "github.com/makeshop-jp/master-console/internal/domain/repository/payout_record"
-	persistence "github.com/makeshop-jp/master-console/internal/infrastructure/persistence/util"
-	"github.com/makeshop-jp/master-console/internal/pkg/database"
+	repository "github.com/test-tzs/nomraeite/internal/domain/repository/payout_record"
+	persistence "github.com/test-tzs/nomraeite/internal/infrastructure/persistence/util"
+	"github.com/test-tzs/nomraeite/internal/pkg/database"
 	"gorm.io/gorm"
 )
 

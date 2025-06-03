@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
-	model "github.com/makeshop-jp/master-console/internal/domain/model/payout"
-	"github.com/makeshop-jp/master-console/internal/domain/service"
+	model "github.com/test-tzs/nomraeite/internal/domain/model/payout"
+	"github.com/test-tzs/nomraeite/internal/domain/service"
 )
 
 var (

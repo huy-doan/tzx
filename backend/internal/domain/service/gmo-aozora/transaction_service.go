@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 
-	transactionRepo "github.com/makeshop-jp/master-console/batch/domain/repository/transaction"
-	payoutRecordModel "github.com/makeshop-jp/master-console/internal/domain/model/payout_record"
-	object "github.com/makeshop-jp/master-console/internal/domain/object/transaction"
-	"github.com/makeshop-jp/master-console/internal/pkg/logger"
+	transactionRepo "github.com/test-tzs/nomraeite/batch/domain/repository/transaction"
+	payoutRecordModel "github.com/test-tzs/nomraeite/internal/domain/model/payout_record"
+	object "github.com/test-tzs/nomraeite/internal/domain/object/transaction"
+	"github.com/test-tzs/nomraeite/internal/pkg/logger"
 )
 
 type TransactionService interface {

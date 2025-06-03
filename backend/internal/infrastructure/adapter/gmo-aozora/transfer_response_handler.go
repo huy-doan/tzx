@@ -5,11 +5,11 @@ import (
 	"encoding/json"
 	"net/http"
 
-	model "github.com/makeshop-jp/master-console/internal/domain/model/api/gmo-aozora"
-	object "github.com/makeshop-jp/master-console/internal/domain/object/api/gmo-aozora"
-	dto "github.com/makeshop-jp/master-console/internal/infrastructure/persistence/gmo-aozora/dto"
-	"github.com/makeshop-jp/master-console/internal/pkg/logger"
-	ms "github.com/makeshop-jp/master-console/internal/pkg/utils/messages"
+	model "github.com/test-tzs/nomraeite/internal/domain/model/api/gmo-aozora"
+	object "github.com/test-tzs/nomraeite/internal/domain/object/api/gmo-aozora"
+	dto "github.com/test-tzs/nomraeite/internal/infrastructure/persistence/gmo-aozora/dto"
+	"github.com/test-tzs/nomraeite/internal/pkg/logger"
+	ms "github.com/test-tzs/nomraeite/internal/pkg/utils/messages"
 )
 
 type TransferResponseHandler struct {

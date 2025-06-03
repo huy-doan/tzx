@@ -1,10 +1,10 @@
 package dto
 
 import (
-	model "github.com/makeshop-jp/master-console/internal/domain/model/transaction"
-	util "github.com/makeshop-jp/master-console/internal/domain/object/basedatetime"
-	object "github.com/makeshop-jp/master-console/internal/domain/object/transaction"
-	persistence "github.com/makeshop-jp/master-console/internal/infrastructure/persistence/util"
+	model "github.com/test-tzs/nomraeite/internal/domain/model/transaction"
+	util "github.com/test-tzs/nomraeite/internal/domain/object/basedatetime"
+	object "github.com/test-tzs/nomraeite/internal/domain/object/transaction"
+	persistence "github.com/test-tzs/nomraeite/internal/infrastructure/persistence/util"
 	"gorm.io/gorm"
 )
 

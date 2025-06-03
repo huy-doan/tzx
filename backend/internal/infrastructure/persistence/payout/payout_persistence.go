@@ -4,12 +4,12 @@ import (
 	"context"
 	"math"
 
-	model "github.com/makeshop-jp/master-console/internal/domain/model/payout"
-	repository "github.com/makeshop-jp/master-console/internal/domain/repository/payout"
-	"github.com/makeshop-jp/master-console/internal/infrastructure/persistence/payout/convert"
-	"github.com/makeshop-jp/master-console/internal/infrastructure/persistence/payout/dto"
-	persistence "github.com/makeshop-jp/master-console/internal/infrastructure/persistence/util"
-	"github.com/makeshop-jp/master-console/internal/pkg/database"
+	model "github.com/test-tzs/nomraeite/internal/domain/model/payout"
+	repository "github.com/test-tzs/nomraeite/internal/domain/repository/payout"
+	"github.com/test-tzs/nomraeite/internal/infrastructure/persistence/payout/convert"
+	"github.com/test-tzs/nomraeite/internal/infrastructure/persistence/payout/dto"
+	persistence "github.com/test-tzs/nomraeite/internal/infrastructure/persistence/util"
+	"github.com/test-tzs/nomraeite/internal/pkg/database"
 	"gorm.io/gorm"
 )
 

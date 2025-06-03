@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"time"
 
-	appConf "github.com/makeshop-jp/master-console/internal/pkg/config"
 	"github.com/sirupsen/logrus"
+	appConf "github.com/test-tzs/nomraeite/internal/pkg/config"
 )
 
 type CLILoggerConfig struct {

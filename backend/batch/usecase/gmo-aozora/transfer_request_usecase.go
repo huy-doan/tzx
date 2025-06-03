@@ -4,13 +4,13 @@ import (
 	"context"
 	"fmt"
 
-	payoutRepo "github.com/makeshop-jp/master-console/batch/domain/repository/payout"
-	transactionRepo "github.com/makeshop-jp/master-console/batch/domain/repository/transaction"
-	"github.com/makeshop-jp/master-console/internal/datastructure/inputdata"
-	adapterGmoAozora "github.com/makeshop-jp/master-console/internal/domain/adapter/gmo-aozora"
-	gmoAozoraService "github.com/makeshop-jp/master-console/internal/domain/service/gmo-aozora"
-	"github.com/makeshop-jp/master-console/internal/pkg/database"
-	"github.com/makeshop-jp/master-console/internal/pkg/logger"
+	payoutRepo "github.com/test-tzs/nomraeite/batch/domain/repository/payout"
+	transactionRepo "github.com/test-tzs/nomraeite/batch/domain/repository/transaction"
+	"github.com/test-tzs/nomraeite/internal/datastructure/inputdata"
+	adapterGmoAozora "github.com/test-tzs/nomraeite/internal/domain/adapter/gmo-aozora"
+	gmoAozoraService "github.com/test-tzs/nomraeite/internal/domain/service/gmo-aozora"
+	"github.com/test-tzs/nomraeite/internal/pkg/database"
+	"github.com/test-tzs/nomraeite/internal/pkg/logger"
 )
 
 type TransferRequestUsecase interface {

@@ -3,10 +3,10 @@ package model
 import (
 	"time"
 
-	bankAccountObject "github.com/makeshop-jp/master-console/internal/domain/object/bank_account"
-	timeUtil "github.com/makeshop-jp/master-console/internal/domain/object/basedatetime"
-	object "github.com/makeshop-jp/master-console/internal/domain/object/payout"
-	utils "github.com/makeshop-jp/master-console/internal/pkg/utils"
+	bankAccountObject "github.com/test-tzs/nomraeite/internal/domain/object/bank_account"
+	timeUtil "github.com/test-tzs/nomraeite/internal/domain/object/basedatetime"
+	object "github.com/test-tzs/nomraeite/internal/domain/object/payout"
+	utils "github.com/test-tzs/nomraeite/internal/pkg/utils"
 )
 
 type BankAccount struct {

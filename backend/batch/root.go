@@ -3,8 +3,8 @@ package batch
 import (
 	"os"
 
-	command "github.com/makeshop-jp/master-console/batch/command/gmo-aozora"
 	"github.com/spf13/cobra"
+	command "github.com/test-tzs/nomraeite/batch/command/gmo-aozora"
 )
 
 // rootbatch represents the base command when called without any subcommands

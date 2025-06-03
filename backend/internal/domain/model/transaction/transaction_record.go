@@ -1,7 +1,7 @@
 package model
 
 import (
-	util "github.com/makeshop-jp/master-console/internal/domain/object/basedatetime"
+	util "github.com/test-tzs/nomraeite/internal/domain/object/basedatetime"
 )
 
 // TransactionRecordType constants defined from the database comments

@@ -4,12 +4,12 @@ import (
 	"errors"
 	"time"
 
-	model "github.com/makeshop-jp/master-console/internal/domain/model/connected_service_token"
-	modelUtil "github.com/makeshop-jp/master-console/internal/domain/object/basedatetime"
-	object "github.com/makeshop-jp/master-console/internal/domain/object/connected_service_token"
-	persistence "github.com/makeshop-jp/master-console/internal/infrastructure/persistence/util"
-	config "github.com/makeshop-jp/master-console/internal/pkg/config"
-	"github.com/makeshop-jp/master-console/internal/pkg/utils"
+	model "github.com/test-tzs/nomraeite/internal/domain/model/connected_service_token"
+	modelUtil "github.com/test-tzs/nomraeite/internal/domain/object/basedatetime"
+	object "github.com/test-tzs/nomraeite/internal/domain/object/connected_service_token"
+	persistence "github.com/test-tzs/nomraeite/internal/infrastructure/persistence/util"
+	config "github.com/test-tzs/nomraeite/internal/pkg/config"
+	"github.com/test-tzs/nomraeite/internal/pkg/utils"
 	"gorm.io/gorm"
 )
 

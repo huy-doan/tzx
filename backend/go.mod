@@ -1,4 +1,4 @@
-module github.com/makeshop-jp/master-console
+module github.com/test-tzs/nomraeite
 
 go 1.24
 

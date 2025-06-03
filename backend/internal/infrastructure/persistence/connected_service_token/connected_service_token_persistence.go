@@ -4,11 +4,11 @@ import (
 	"context"
 	"errors"
 
-	model "github.com/makeshop-jp/master-console/internal/domain/model/connected_service_token"
-	object "github.com/makeshop-jp/master-console/internal/domain/object/connected_service_token"
-	repository "github.com/makeshop-jp/master-console/internal/domain/repository/connected_service_token"
-	"github.com/makeshop-jp/master-console/internal/infrastructure/persistence/connected_service_token/dto"
-	"github.com/makeshop-jp/master-console/internal/pkg/database"
+	model "github.com/test-tzs/nomraeite/internal/domain/model/connected_service_token"
+	object "github.com/test-tzs/nomraeite/internal/domain/object/connected_service_token"
+	repository "github.com/test-tzs/nomraeite/internal/domain/repository/connected_service_token"
+	"github.com/test-tzs/nomraeite/internal/infrastructure/persistence/connected_service_token/dto"
+	"github.com/test-tzs/nomraeite/internal/pkg/database"
 	"gorm.io/gorm"
 )
 

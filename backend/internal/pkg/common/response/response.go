@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
-	"github.com/makeshop-jp/master-console/internal/pkg/errors"
-	"github.com/makeshop-jp/master-console/internal/pkg/utils/messages"
+	"github.com/test-tzs/nomraeite/internal/pkg/errors"
+	"github.com/test-tzs/nomraeite/internal/pkg/utils/messages"
 )
 
 type BaseDataResponse[T any] struct {

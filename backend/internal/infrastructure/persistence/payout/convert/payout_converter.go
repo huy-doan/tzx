@@ -1,11 +1,11 @@
 package convert
 
 import (
-	modelPayout "github.com/makeshop-jp/master-console/internal/domain/model/payout"
-	util "github.com/makeshop-jp/master-console/internal/domain/object/basedatetime"
-	objectPayout "github.com/makeshop-jp/master-console/internal/domain/object/payout"
-	"github.com/makeshop-jp/master-console/internal/infrastructure/persistence/payout/dto"
-	userDto "github.com/makeshop-jp/master-console/internal/infrastructure/persistence/user/dto"
+	modelPayout "github.com/test-tzs/nomraeite/internal/domain/model/payout"
+	util "github.com/test-tzs/nomraeite/internal/domain/object/basedatetime"
+	objectPayout "github.com/test-tzs/nomraeite/internal/domain/object/payout"
+	"github.com/test-tzs/nomraeite/internal/infrastructure/persistence/payout/dto"
+	userDto "github.com/test-tzs/nomraeite/internal/infrastructure/persistence/user/dto"
 )
 
 func ToPayoutDTO(payout *modelPayout.Payout) *dto.Payout {

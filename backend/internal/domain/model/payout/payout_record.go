@@ -3,11 +3,11 @@ package model
 import (
 	"time"
 
-	merchant "github.com/makeshop-jp/master-console/internal/domain/model/merchant"
-	transaction "github.com/makeshop-jp/master-console/internal/domain/model/transaction"
+	merchant "github.com/test-tzs/nomraeite/internal/domain/model/merchant"
+	transaction "github.com/test-tzs/nomraeite/internal/domain/model/transaction"
 
-	util "github.com/makeshop-jp/master-console/internal/domain/object/basedatetime"
-	object "github.com/makeshop-jp/master-console/internal/domain/object/payout"
+	util "github.com/test-tzs/nomraeite/internal/domain/object/basedatetime"
+	object "github.com/test-tzs/nomraeite/internal/domain/object/payout"
 )
 
 type PayoutRecord struct {

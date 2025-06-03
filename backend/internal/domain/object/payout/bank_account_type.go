@@ -1,7 +1,7 @@
 package object
 
 import (
-	gmoAozoraObject "github.com/makeshop-jp/master-console/internal/domain/object/api/gmo-aozora"
+	gmoAozoraObject "github.com/test-tzs/nomraeite/internal/domain/object/api/gmo-aozora"
 )
 
 // BankAccountType represents the type of bank account

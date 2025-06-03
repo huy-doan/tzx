@@ -1,8 +1,8 @@
 package dto
 
 import (
-	model "github.com/makeshop-jp/master-console/internal/domain/model/api/gmo-aozora"
-	object "github.com/makeshop-jp/master-console/internal/domain/object/api/gmo-aozora"
+	model "github.com/test-tzs/nomraeite/internal/domain/model/api/gmo-aozora"
+	object "github.com/test-tzs/nomraeite/internal/domain/object/api/gmo-aozora"
 )
 
 type SuccessTransferResponse struct {

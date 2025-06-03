@@ -5,13 +5,13 @@ import (
 	"errors"
 	"fmt"
 
-	payoutRepo "github.com/makeshop-jp/master-console/batch/domain/repository/payout"
-	"github.com/makeshop-jp/master-console/internal/datastructure/inputdata"
-	adapterGmoAozora "github.com/makeshop-jp/master-console/internal/domain/adapter/gmo-aozora"
-	gmoAozoraModel "github.com/makeshop-jp/master-console/internal/domain/model/api/gmo-aozora"
-	payoutRecordModel "github.com/makeshop-jp/master-console/internal/domain/model/payout_record"
-	"github.com/makeshop-jp/master-console/internal/pkg/config"
-	"github.com/makeshop-jp/master-console/internal/pkg/logger"
+	payoutRepo "github.com/test-tzs/nomraeite/batch/domain/repository/payout"
+	"github.com/test-tzs/nomraeite/internal/datastructure/inputdata"
+	adapterGmoAozora "github.com/test-tzs/nomraeite/internal/domain/adapter/gmo-aozora"
+	gmoAozoraModel "github.com/test-tzs/nomraeite/internal/domain/model/api/gmo-aozora"
+	payoutRecordModel "github.com/test-tzs/nomraeite/internal/domain/model/payout_record"
+	"github.com/test-tzs/nomraeite/internal/pkg/config"
+	"github.com/test-tzs/nomraeite/internal/pkg/logger"
 )
 
 type TransferService interface {

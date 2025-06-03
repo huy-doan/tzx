@@ -4,10 +4,10 @@ import (
 	"context"
 	"errors"
 
-	repository "github.com/makeshop-jp/master-console/batch/domain/repository/transaction"
-	model "github.com/makeshop-jp/master-console/internal/domain/model/transaction"
-	dto "github.com/makeshop-jp/master-console/internal/infrastructure/persistence/transaction/dto"
-	"github.com/makeshop-jp/master-console/internal/pkg/database"
+	repository "github.com/test-tzs/nomraeite/batch/domain/repository/transaction"
+	model "github.com/test-tzs/nomraeite/internal/domain/model/transaction"
+	dto "github.com/test-tzs/nomraeite/internal/infrastructure/persistence/transaction/dto"
+	"github.com/test-tzs/nomraeite/internal/pkg/database"
 
 	"gorm.io/gorm"
 )

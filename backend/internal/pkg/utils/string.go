@@ -7,7 +7,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/makeshop-jp/master-console/internal/pkg/utils/static"
+	"github.com/test-tzs/nomraeite/internal/pkg/utils/static"
 )
 
 var kanaReplacers = map[string][]*strings.Replacer{

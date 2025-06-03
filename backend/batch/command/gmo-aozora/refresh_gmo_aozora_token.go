@@ -1,8 +1,8 @@
 package command
 
 import (
-	application "github.com/makeshop-jp/master-console/batch/application/gmo-aozora/refresh_gmo_aozora_token"
 	"github.com/spf13/cobra"
+	application "github.com/test-tzs/nomraeite/batch/application/gmo-aozora/refresh_gmo_aozora_token"
 )
 
 var refreshTokenCmd = &cobra.Command{

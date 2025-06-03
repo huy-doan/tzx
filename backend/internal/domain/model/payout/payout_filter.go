@@ -3,8 +3,8 @@ package model
 import (
 	"time"
 
-	"github.com/makeshop-jp/master-console/internal/domain/model/util"
-	objectPayout "github.com/makeshop-jp/master-console/internal/domain/object/payout"
+	"github.com/test-tzs/nomraeite/internal/domain/model/util"
+	objectPayout "github.com/test-tzs/nomraeite/internal/domain/object/payout"
 )
 
 type PayoutFilter struct {

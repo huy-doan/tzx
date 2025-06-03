@@ -3,9 +3,9 @@ package model
 import (
 	"time"
 
-	userModel "github.com/makeshop-jp/master-console/internal/domain/model/user"
-	util "github.com/makeshop-jp/master-console/internal/domain/object/basedatetime"
-	object "github.com/makeshop-jp/master-console/internal/domain/object/payout"
+	userModel "github.com/test-tzs/nomraeite/internal/domain/model/user"
+	util "github.com/test-tzs/nomraeite/internal/domain/object/basedatetime"
+	object "github.com/test-tzs/nomraeite/internal/domain/object/payout"
 )
 
 // Update from existing model to include the TransferType field

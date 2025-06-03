@@ -3,8 +3,8 @@ package model
 import (
 	"strconv"
 
-	payoutRecordModel "github.com/makeshop-jp/master-console/internal/domain/model/payout_record"
-	object "github.com/makeshop-jp/master-console/internal/domain/object/api/gmo-aozora"
+	payoutRecordModel "github.com/test-tzs/nomraeite/internal/domain/model/payout_record"
+	object "github.com/test-tzs/nomraeite/internal/domain/object/api/gmo-aozora"
 )
 
 type TransferHeaderRequest struct {

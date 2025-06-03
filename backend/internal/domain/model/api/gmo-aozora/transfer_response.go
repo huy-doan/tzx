@@ -1,7 +1,7 @@
 package model
 
 import (
-	object "github.com/makeshop-jp/master-console/internal/domain/object/api/gmo-aozora"
+	object "github.com/test-tzs/nomraeite/internal/domain/object/api/gmo-aozora"
 )
 
 type TransferResponse struct {

@@ -1,7 +1,7 @@
 package dto
 
 import (
-	model "github.com/makeshop-jp/master-console/internal/domain/model/api/gmo-aozora"
+	model "github.com/test-tzs/nomraeite/internal/domain/model/api/gmo-aozora"
 )
 
 type GmoAozoraTokenClaimResponse struct {

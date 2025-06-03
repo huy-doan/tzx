@@ -1,8 +1,8 @@
 package command
 
 import (
-	application "github.com/makeshop-jp/master-console/batch/application/gmo-aozora/transfer_request"
 	"github.com/spf13/cobra"
+	application "github.com/test-tzs/nomraeite/batch/application/gmo-aozora/transfer_request"
 )
 
 var transferRequest = &cobra.Command{

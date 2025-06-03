@@ -3,9 +3,9 @@ package dto
 import (
 	"time"
 
-	util "github.com/makeshop-jp/master-console/internal/domain/object/basedatetime"
-	approvalDto "github.com/makeshop-jp/master-console/internal/infrastructure/persistence/approval/dto"
-	userDto "github.com/makeshop-jp/master-console/internal/infrastructure/persistence/user/dto"
+	util "github.com/test-tzs/nomraeite/internal/domain/object/basedatetime"
+	approvalDto "github.com/test-tzs/nomraeite/internal/infrastructure/persistence/approval/dto"
+	userDto "github.com/test-tzs/nomraeite/internal/infrastructure/persistence/user/dto"
 )
 
 type Payout struct {

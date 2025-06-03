@@ -4,11 +4,11 @@ import (
 	"log"
 	"os"
 
-	"github.com/makeshop-jp/master-console/batch/infrastructure/container"
-	task "github.com/makeshop-jp/master-console/batch/task/gmo-aozora"
-	adapterAozora "github.com/makeshop-jp/master-console/internal/infrastructure/adapter/gmo-aozora"
-	persistence "github.com/makeshop-jp/master-console/internal/infrastructure/persistence/connected_service_token"
-	aozoraUS "github.com/makeshop-jp/master-console/internal/usecase/gmo-aozora"
+	"github.com/test-tzs/nomraeite/batch/infrastructure/container"
+	task "github.com/test-tzs/nomraeite/batch/task/gmo-aozora"
+	adapterAozora "github.com/test-tzs/nomraeite/internal/infrastructure/adapter/gmo-aozora"
+	persistence "github.com/test-tzs/nomraeite/internal/infrastructure/persistence/connected_service_token"
+	aozoraUS "github.com/test-tzs/nomraeite/internal/usecase/gmo-aozora"
 )
 
 func Execute() {

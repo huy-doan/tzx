@@ -3,9 +3,9 @@ package model
 import (
 	"time"
 
-	model "github.com/makeshop-jp/master-console/internal/domain/model/api/gmo-aozora"
-	util "github.com/makeshop-jp/master-console/internal/domain/object/basedatetime"
-	object "github.com/makeshop-jp/master-console/internal/domain/object/connected_service_token"
+	model "github.com/test-tzs/nomraeite/internal/domain/model/api/gmo-aozora"
+	util "github.com/test-tzs/nomraeite/internal/domain/object/basedatetime"
+	object "github.com/test-tzs/nomraeite/internal/domain/object/connected_service_token"
 )
 
 // ConnectedServiceToken represents an external service connection

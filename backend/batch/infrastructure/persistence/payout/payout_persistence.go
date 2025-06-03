@@ -3,12 +3,12 @@ package persistence
 import (
 	"context"
 
-	repository "github.com/makeshop-jp/master-console/batch/domain/repository/payout"
-	model "github.com/makeshop-jp/master-console/internal/domain/model/payout"
-	object "github.com/makeshop-jp/master-console/internal/domain/object/payout"
-	"github.com/makeshop-jp/master-console/internal/infrastructure/persistence/payout/convert"
-	"github.com/makeshop-jp/master-console/internal/infrastructure/persistence/payout/dto"
-	"github.com/makeshop-jp/master-console/internal/pkg/database"
+	repository "github.com/test-tzs/nomraeite/batch/domain/repository/payout"
+	model "github.com/test-tzs/nomraeite/internal/domain/model/payout"
+	object "github.com/test-tzs/nomraeite/internal/domain/object/payout"
+	"github.com/test-tzs/nomraeite/internal/infrastructure/persistence/payout/convert"
+	"github.com/test-tzs/nomraeite/internal/infrastructure/persistence/payout/dto"
+	"github.com/test-tzs/nomraeite/internal/pkg/database"
 	"gorm.io/gorm"
 )
 

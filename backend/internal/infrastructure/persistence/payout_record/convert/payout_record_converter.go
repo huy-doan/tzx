@@ -1,11 +1,11 @@
 package convert
 
 import (
-	modelPayoutRecord "github.com/makeshop-jp/master-console/internal/domain/model/payout_record"
-	bankAccountObject "github.com/makeshop-jp/master-console/internal/domain/object/bank_account"
-	util "github.com/makeshop-jp/master-console/internal/domain/object/basedatetime"
-	"github.com/makeshop-jp/master-console/internal/infrastructure/persistence/payout_record/dto"
-	persistence "github.com/makeshop-jp/master-console/internal/infrastructure/persistence/util"
+	modelPayoutRecord "github.com/test-tzs/nomraeite/internal/domain/model/payout_record"
+	bankAccountObject "github.com/test-tzs/nomraeite/internal/domain/object/bank_account"
+	util "github.com/test-tzs/nomraeite/internal/domain/object/basedatetime"
+	"github.com/test-tzs/nomraeite/internal/infrastructure/persistence/payout_record/dto"
+	persistence "github.com/test-tzs/nomraeite/internal/infrastructure/persistence/util"
 	"gorm.io/gorm"
 )
 

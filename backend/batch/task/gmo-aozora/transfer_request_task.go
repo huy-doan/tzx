@@ -5,13 +5,13 @@ import (
 	"errors"
 	"fmt"
 
-	payoutRepo "github.com/makeshop-jp/master-console/batch/domain/repository/payout"
-	usecase "github.com/makeshop-jp/master-console/batch/usecase/gmo-aozora"
-	"github.com/makeshop-jp/master-console/internal/datastructure/inputdata"
-	object "github.com/makeshop-jp/master-console/internal/domain/object/connected_service_token"
-	payoutObject "github.com/makeshop-jp/master-console/internal/domain/object/payout"
-	connectedServiceTokenRepo "github.com/makeshop-jp/master-console/internal/domain/repository/connected_service_token"
-	"github.com/makeshop-jp/master-console/internal/pkg/logger"
+	payoutRepo "github.com/test-tzs/nomraeite/batch/domain/repository/payout"
+	usecase "github.com/test-tzs/nomraeite/batch/usecase/gmo-aozora"
+	"github.com/test-tzs/nomraeite/internal/datastructure/inputdata"
+	object "github.com/test-tzs/nomraeite/internal/domain/object/connected_service_token"
+	payoutObject "github.com/test-tzs/nomraeite/internal/domain/object/payout"
+	connectedServiceTokenRepo "github.com/test-tzs/nomraeite/internal/domain/repository/connected_service_token"
+	"github.com/test-tzs/nomraeite/internal/pkg/logger"
 )
 
 type TransferRequestTask struct {

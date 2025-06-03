@@ -3,7 +3,7 @@ package repository
 import (
 	"context"
 
-	model "github.com/makeshop-jp/master-console/internal/domain/model/transaction"
+	model "github.com/test-tzs/nomraeite/internal/domain/model/transaction"
 )
 
 type TransactionRepository interface {

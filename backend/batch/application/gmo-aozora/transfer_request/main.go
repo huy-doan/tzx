@@ -5,14 +5,14 @@ import (
 	"os"
 	"time"
 
-	"github.com/makeshop-jp/master-console/batch/infrastructure/container"
-	payoutPersistence "github.com/makeshop-jp/master-console/batch/infrastructure/persistence/payout"
-	transactionPersistence "github.com/makeshop-jp/master-console/batch/infrastructure/persistence/transaction"
-	gmoAozoraTask "github.com/makeshop-jp/master-console/batch/task/gmo-aozora"
-	gmoAozorUC "github.com/makeshop-jp/master-console/batch/usecase/gmo-aozora"
-	adapterAozora "github.com/makeshop-jp/master-console/internal/infrastructure/adapter/gmo-aozora"
-	connectedServiceTokenPersistence "github.com/makeshop-jp/master-console/internal/infrastructure/persistence/connected_service_token"
-	"github.com/makeshop-jp/master-console/internal/pkg/database"
+	"github.com/test-tzs/nomraeite/batch/infrastructure/container"
+	payoutPersistence "github.com/test-tzs/nomraeite/batch/infrastructure/persistence/payout"
+	transactionPersistence "github.com/test-tzs/nomraeite/batch/infrastructure/persistence/transaction"
+	gmoAozoraTask "github.com/test-tzs/nomraeite/batch/task/gmo-aozora"
+	gmoAozorUC "github.com/test-tzs/nomraeite/batch/usecase/gmo-aozora"
+	adapterAozora "github.com/test-tzs/nomraeite/internal/infrastructure/adapter/gmo-aozora"
+	connectedServiceTokenPersistence "github.com/test-tzs/nomraeite/internal/infrastructure/persistence/connected_service_token"
+	"github.com/test-tzs/nomraeite/internal/pkg/database"
 )
 
 func Execute() {

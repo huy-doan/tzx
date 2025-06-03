@@ -7,7 +7,7 @@ import (
 
 	"maps"
 
-	apiErrors "github.com/makeshop-jp/master-console/internal/pkg/errors"
+	apiErrors "github.com/test-tzs/nomraeite/internal/pkg/errors"
 )
 
 // LogErrorWithContext logs an error with detailed contextual information

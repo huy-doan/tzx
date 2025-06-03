@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 
-	adapter "github.com/makeshop-jp/master-console/internal/domain/adapter/gmo-aozora"
-	model "github.com/makeshop-jp/master-console/internal/domain/model/connected_service_token"
-	repository "github.com/makeshop-jp/master-console/internal/domain/repository/connected_service_token"
-	"github.com/makeshop-jp/master-console/internal/pkg/logger"
+	adapter "github.com/test-tzs/nomraeite/internal/domain/adapter/gmo-aozora"
+	model "github.com/test-tzs/nomraeite/internal/domain/model/connected_service_token"
+	repository "github.com/test-tzs/nomraeite/internal/domain/repository/connected_service_token"
+	"github.com/test-tzs/nomraeite/internal/pkg/logger"
 )
 
 type AuthUseCase interface {

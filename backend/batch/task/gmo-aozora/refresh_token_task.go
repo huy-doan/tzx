@@ -5,10 +5,10 @@ import (
 	"errors"
 	"fmt"
 
-	object "github.com/makeshop-jp/master-console/internal/domain/object/connected_service_token"
-	repository "github.com/makeshop-jp/master-console/internal/domain/repository/connected_service_token"
-	"github.com/makeshop-jp/master-console/internal/pkg/logger"
-	usecase "github.com/makeshop-jp/master-console/internal/usecase/gmo-aozora"
+	object "github.com/test-tzs/nomraeite/internal/domain/object/connected_service_token"
+	repository "github.com/test-tzs/nomraeite/internal/domain/repository/connected_service_token"
+	"github.com/test-tzs/nomraeite/internal/pkg/logger"
+	usecase "github.com/test-tzs/nomraeite/internal/usecase/gmo-aozora"
 )
 
 type RefreshGmoAozoraTokenTask struct {

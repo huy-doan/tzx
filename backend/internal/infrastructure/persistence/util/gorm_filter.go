@@ -3,7 +3,7 @@ package persistence
 import (
 	"fmt"
 
-	domainFilter "github.com/makeshop-jp/master-console/internal/domain/model/util"
+	domainFilter "github.com/test-tzs/nomraeite/internal/domain/model/util"
 	"gorm.io/gorm"
 )
 

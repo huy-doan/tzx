@@ -1,7 +1,7 @@
 package main
 
 import (
-	batch "github.com/makeshop-jp/master-console/batch"
+	batch "github.com/test-tzs/nomraeite/batch"
 )
 
 func main() {

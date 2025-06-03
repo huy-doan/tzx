@@ -1,8 +1,8 @@
 package model
 
 import (
-	util "github.com/makeshop-jp/master-console/internal/domain/object/basedatetime"
-	object "github.com/makeshop-jp/master-console/internal/domain/object/transaction"
+	util "github.com/test-tzs/nomraeite/internal/domain/object/basedatetime"
+	object "github.com/test-tzs/nomraeite/internal/domain/object/transaction"
 )
 
 type Transaction struct {

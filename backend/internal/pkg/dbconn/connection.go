@@ -8,8 +8,8 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 
-	"github.com/makeshop-jp/master-console/internal/pkg/config"
-	"github.com/makeshop-jp/master-console/internal/pkg/logger"
+	"github.com/test-tzs/nomraeite/internal/pkg/config"
+	"github.com/test-tzs/nomraeite/internal/pkg/logger"
 )
 
 const (

@@ -3,9 +3,9 @@ package dto
 import (
 	"time"
 
-	object "github.com/makeshop-jp/master-console/internal/domain/object/payout"
-	payoutDto "github.com/makeshop-jp/master-console/internal/infrastructure/persistence/payout/dto"
-	persistence "github.com/makeshop-jp/master-console/internal/infrastructure/persistence/util"
+	object "github.com/test-tzs/nomraeite/internal/domain/object/payout"
+	payoutDto "github.com/test-tzs/nomraeite/internal/infrastructure/persistence/payout/dto"
+	persistence "github.com/test-tzs/nomraeite/internal/infrastructure/persistence/util"
 )
 
 type PayoutRecord struct {

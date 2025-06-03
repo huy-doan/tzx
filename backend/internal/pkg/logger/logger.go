@@ -10,8 +10,8 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	appConf "github.com/makeshop-jp/master-console/internal/pkg/config"
 	"github.com/sirupsen/logrus"
+	appConf "github.com/test-tzs/nomraeite/internal/pkg/config"
 )
 
 // LogLevel represents logging levels

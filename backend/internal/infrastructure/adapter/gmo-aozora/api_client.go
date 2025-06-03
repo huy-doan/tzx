@@ -9,12 +9,12 @@ import (
 	"net/http"
 	"net/url"
 
-	adapter "github.com/makeshop-jp/master-console/internal/domain/adapter/gmo-aozora"
-	model "github.com/makeshop-jp/master-console/internal/domain/model/api/gmo-aozora"
-	dto "github.com/makeshop-jp/master-console/internal/infrastructure/persistence/gmo-aozora/dto"
-	config "github.com/makeshop-jp/master-console/internal/pkg/config"
-	httpApp "github.com/makeshop-jp/master-console/internal/pkg/http"
-	"github.com/makeshop-jp/master-console/internal/pkg/logger"
+	adapter "github.com/test-tzs/nomraeite/internal/domain/adapter/gmo-aozora"
+	model "github.com/test-tzs/nomraeite/internal/domain/model/api/gmo-aozora"
+	dto "github.com/test-tzs/nomraeite/internal/infrastructure/persistence/gmo-aozora/dto"
+	config "github.com/test-tzs/nomraeite/internal/pkg/config"
+	httpApp "github.com/test-tzs/nomraeite/internal/pkg/http"
+	"github.com/test-tzs/nomraeite/internal/pkg/logger"
 )
 
 type ApiClientAdapter struct {

@@ -3,9 +3,9 @@ package service
 import (
 	"fmt"
 
-	appConfig "github.com/makeshop-jp/master-console/internal/pkg/config"
-	"github.com/makeshop-jp/master-console/internal/pkg/dbconn"
-	"github.com/makeshop-jp/master-console/internal/pkg/logger"
+	appConfig "github.com/test-tzs/nomraeite/internal/pkg/config"
+	"github.com/test-tzs/nomraeite/internal/pkg/dbconn"
+	"github.com/test-tzs/nomraeite/internal/pkg/logger"
 
 	"gorm.io/gorm"
 )

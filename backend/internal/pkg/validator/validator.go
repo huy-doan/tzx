@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/go-playground/validator/v10"
-	"github.com/makeshop-jp/master-console/internal/pkg/validator/custom_rules"
+	"github.com/test-tzs/nomraeite/internal/pkg/validator/custom_rules"
 )
 
 type CustomValidator struct {
