@@ -1,0 +1,65 @@
+package service
+
+import (
+	"fmt"
+
+	appConfig "github.com/makeshop-jp/master-console/internal/pkg/config"
+	"github.com/makeshop-jp/master-console/internal/pkg/dbconn"
+	"github.com/makeshop-jp/master-console/internal/pkg/logger"
+
+	"gorm.io/gorm"
+)
+
+type LogBatchConfig struct {
+	LogLevel     string
+	LogDirectory string
+}
+
+type BatchService struct {
+	Logger    logger.Logger
+	DB        *gorm.DB
+	AppConfig *appConfig.Config
+}
+
+func DefaultLogConfig(appConfig *appConfig.Config) *LogBatchConfig {
+	return &LogBatchConfig{
+		LogLevel:     appConfig.LogLevel,
+		LogDirectory: appConfig.LogDirectory,
+	}
+}
+
+func NewBatchService() (*BatchService, error) {
+	return NewBatchServiceWithConfig()
+}
+
+func NewBatchServiceWithConfig() (*BatchService, error) {
+	appConfig := appConfig.GetConfig()
+	logConfig := DefaultLogConfig(appConfig)
+	cliLogger := logger.InitCLILogger(&logger.CLILoggerConfig{
+		LogLevel:     logConfig.LogLevel,
+		LogDirectory: logConfig.LogDirectory,
+	})
+
+	db, err := dbconn.NewConnection(cliLogger)
+	if err != nil {
+		cliLogger.Error("Failed to connect to database", map[string]any{
+			"error": err.Error(),
+		})
+		return nil, fmt.Errorf("database connection failed: %w", err)
+	}
+
+	return &BatchService{
+		DB:        db,
+		Logger:    cliLogger,
+		AppConfig: appConfig,
+	}, nil
+}
+
+// Close releases resources when finished
+func (s *BatchService) Close() error {
+	sqlDB, err := s.DB.DB()
+	if err != nil {
+		return err
+	}
+	return sqlDB.Close()
+}
