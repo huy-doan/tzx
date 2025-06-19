@@ -41,6 +41,16 @@ func (r *ConnectedServiceTokenRepositoryImpl) FindByServiceName(ctx context.Cont
 	return serviceDTO.ToModel(), nil
 }
 
+func (r *ConnectedServiceTokenRepositoryImpl) Create(ctx context.Context, service *model.ConnectedServiceToken) error {
+	db, err := database.GetTxOrDB(ctx)
+	if err != nil {
+		return err
+	}
+
+	serviceDTO := dto.FromModel(service)
+	return db.Create(serviceDTO).Error
+}
+
 func (r *ConnectedServiceTokenRepositoryImpl) Update(ctx context.Context, service *model.ConnectedServiceToken) error {
 	db, err := database.GetTxOrDB(ctx)
 	if err != nil {
@@ -48,5 +58,14 @@ func (r *ConnectedServiceTokenRepositoryImpl) Update(ctx context.Context, servic
 	}
 
 	serviceDTO := dto.FromModel(service)
-	return db.Save(serviceDTO).Error
+	return db.Where("service_name = ?", service.ServiceName).Save(serviceDTO).Error
+}
+
+func (r *ConnectedServiceTokenRepositoryImpl) RevokeByServiceName(ctx context.Context, serviceName object.ConnectedServiceName) error {
+	db, err := database.GetTxOrDB(ctx)
+	if err != nil {
+		return err
+	}
+
+	return db.Unscoped().Where("service_name = ?", serviceName).Delete(&dto.ConnectedServiceToken{}).Error
 }

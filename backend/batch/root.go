@@ -4,7 +4,10 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
-	command "github.com/test-tzs/nomraeite/batch/command/gmo-aozora"
+	gmoAozoracommand "github.com/test-tzs/nomraeite/batch/command/gmo-aozora"
+	makeshopOrderCommand "github.com/test-tzs/nomraeite/batch/command/order"
+	payinCommand "github.com/test-tzs/nomraeite/batch/command/payin"
+	transactionCommand "github.com/test-tzs/nomraeite/batch/command/transaction"
 )
 
 // rootbatch represents the base command when called without any subcommands
@@ -27,6 +30,13 @@ func init() {
 	// Here you will define your flags and configuration settings.
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
-	command.InitRefreshTokenCommand(rootBatch)
-	command.InitAozoraTransferRequestBatch(rootBatch)
+	gmoAozoracommand.InitRefreshTokenCommand(rootBatch)
+	gmoAozoracommand.InitAozoraTransferRequestBatch(rootBatch)
+	gmoAozoracommand.InitAozoraTransferStatusBatch(rootBatch)
+	gmoAozoracommand.InitAozoraBulkTransferStatusBatch(rootBatch)
+	transactionCommand.InitCreatePaypayPaymentTransaction(rootBatch)
+	// Payin commands
+	payinCommand.InitSyncPayinDataCommand(rootBatch)
+	payinCommand.InitImportPayinDataBatch(rootBatch)
+	makeshopOrderCommand.InitImportMakeshopOrderHistoryDataBatch(rootBatch)
 }

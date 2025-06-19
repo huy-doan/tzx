@@ -1,4 +1,3 @@
-// backend/internal/infrastructure/adapter/gmo-aozora/transfer_response_handler.go
 package adapter
 
 import (

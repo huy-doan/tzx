@@ -74,20 +74,24 @@ func (r *TransferResponse) ShouldStopBatch() bool {
 }
 
 func (r *TransferResponse) GetErrorMessage() string {
-	if r.Message != "" {
-		return r.Message
-	}
-
 	if r.ErrorResult != nil {
 		if len(r.ErrorResult.TransferErrorDetails) > 0 && len(r.ErrorResult.TransferErrorDetails[0].ErrorDetails) > 0 {
 			return r.ErrorResult.TransferErrorDetails[0].ErrorDetails[0].ErrorDetailsMessage
 		}
 		if len(r.ErrorResult.ErrorDetails) > 0 {
-			return r.ErrorResult.ErrorDetails[0].ErrorDetailsMessage
+			errorDetailMsg := ""
+			for _, errorDetail := range r.ErrorResult.ErrorDetails {
+				errorDetailMsg += errorDetail.ErrorDetailsMessage
+			}
+			return errorDetailMsg
 		}
 		if r.ErrorResult.ErrorMessage != "" {
 			return r.ErrorResult.ErrorMessage
 		}
+	}
+
+	if r.Message != "" {
+		return r.Message
 	}
 
 	return "Transfer request failed"

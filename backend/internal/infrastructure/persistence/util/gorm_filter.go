@@ -3,7 +3,7 @@ package persistence
 import (
 	"fmt"
 
-	domainFilter "github.com/test-tzs/nomraeite/internal/domain/model/util"
+	filterModel "github.com/test-tzs/nomraeite/internal/domain/model/filter"
 	"gorm.io/gorm"
 )
 
@@ -11,26 +11,80 @@ import (
 type GormFilterBuilder struct{}
 
 // ApplyBaseFilter applies base filter conditions to a GORM query
-func (b *GormFilterBuilder) ApplyBaseFilter(query *gorm.DB, baseFilter *domainFilter.BaseFilter) *gorm.DB {
+func (b *GormFilterBuilder) ApplyBaseFilter(query *gorm.DB, baseFilter *filterModel.BaseFilter) *gorm.DB {
+	// Apply joins first to ensure conditions can reference joined tables
+	for _, join := range baseFilter.Joins {
+		joinStmt := fmt.Sprintf("%s %s ON %s", join.Type, join.Table, join.Condition)
+		if len(join.Parameters) > 0 {
+			query = query.Joins(joinStmt, join.Parameters...)
+		} else {
+			query = query.Joins(joinStmt)
+		}
+	}
+
 	// Apply standard conditions
 	for _, condition := range baseFilter.Conditions {
 		switch condition.Operator {
-		case domainFilter.Equal:
+		case filterModel.Equal:
 			query = query.Where(fmt.Sprintf("%s = ?", condition.Field), condition.Value)
-		case domainFilter.NotEqual:
+		case filterModel.NotEqual:
 			query = query.Where(fmt.Sprintf("%s != ?", condition.Field), condition.Value)
-		case domainFilter.GreaterThan:
+		case filterModel.GreaterThan:
 			query = query.Where(fmt.Sprintf("%s > ?", condition.Field), condition.Value)
-		case domainFilter.GreaterThanOrEqual:
+		case filterModel.GreaterThanOrEqual:
 			query = query.Where(fmt.Sprintf("%s >= ?", condition.Field), condition.Value)
-		case domainFilter.LessThan:
+		case filterModel.LessThan:
 			query = query.Where(fmt.Sprintf("%s < ?", condition.Field), condition.Value)
-		case domainFilter.LessThanOrEqual:
+		case filterModel.LessThanOrEqual:
 			query = query.Where(fmt.Sprintf("%s <= ?", condition.Field), condition.Value)
-		case domainFilter.Like:
+		case filterModel.Like:
 			query = query.Where(fmt.Sprintf("%s LIKE ?", condition.Field), condition.Value)
-		case domainFilter.In:
+		case filterModel.In:
 			query = query.Where(fmt.Sprintf("%s IN (?)", condition.Field), condition.Value)
+		}
+	}
+
+	// Apply OR conditions
+	for _, orGroup := range baseFilter.OrConditions {
+		if len(orGroup.Conditions) > 0 {
+			var conditions []string
+			var values []any
+
+			for _, condition := range orGroup.Conditions {
+				switch condition.Operator {
+				case filterModel.Equal:
+					conditions = append(conditions, fmt.Sprintf("%s = ?", condition.Field))
+				case filterModel.NotEqual:
+					conditions = append(conditions, fmt.Sprintf("%s != ?", condition.Field))
+				case filterModel.GreaterThan:
+					conditions = append(conditions, fmt.Sprintf("%s > ?", condition.Field))
+				case filterModel.GreaterThanOrEqual:
+					conditions = append(conditions, fmt.Sprintf("%s >= ?", condition.Field))
+				case filterModel.LessThan:
+					conditions = append(conditions, fmt.Sprintf("%s < ?", condition.Field))
+				case filterModel.LessThanOrEqual:
+					conditions = append(conditions, fmt.Sprintf("%s <= ?", condition.Field))
+				case filterModel.Like:
+					conditions = append(conditions, fmt.Sprintf("%s LIKE ?", condition.Field))
+				case filterModel.In:
+					conditions = append(conditions, fmt.Sprintf("%s IN (?)", condition.Field))
+				}
+				values = append(values, condition.Value)
+			}
+
+			// Only apply if we have valid conditions
+			if len(conditions) > 0 {
+				// Build the OR clause
+				orClause := "(" + conditions[0] + ")"
+				orArgs := []any{values[0]}
+
+				for i := 1; i < len(conditions); i++ {
+					orClause = orClause + " OR (" + conditions[i] + ")"
+					orArgs = append(orArgs, values[i])
+				}
+
+				query = query.Where(orClause, orArgs...)
+			}
 		}
 	}
 
@@ -38,17 +92,17 @@ func (b *GormFilterBuilder) ApplyBaseFilter(query *gorm.DB, baseFilter *domainFi
 	for _, dateFilter := range baseFilter.DateFilters {
 		if dateFilter.Date != nil {
 			switch dateFilter.Operator {
-			case domainFilter.Equal:
+			case filterModel.Equal:
 				query = query.Where("DATE("+dateFilter.Field+") = DATE(?)", dateFilter.Date)
-			case domainFilter.NotEqual:
+			case filterModel.NotEqual:
 				query = query.Where("DATE("+dateFilter.Field+") != DATE(?)", dateFilter.Date)
-			case domainFilter.GreaterThan:
+			case filterModel.GreaterThan:
 				query = query.Where("DATE("+dateFilter.Field+") > DATE(?)", dateFilter.Date)
-			case domainFilter.GreaterThanOrEqual:
+			case filterModel.GreaterThanOrEqual:
 				query = query.Where("DATE("+dateFilter.Field+") >= DATE(?)", dateFilter.Date)
-			case domainFilter.LessThan:
+			case filterModel.LessThan:
 				query = query.Where("DATE("+dateFilter.Field+") < DATE(?)", dateFilter.Date)
-			case domainFilter.LessThanOrEqual:
+			case filterModel.LessThanOrEqual:
 				query = query.Where("DATE("+dateFilter.Field+") <= DATE(?)", dateFilter.Date)
 			}
 		}
@@ -68,7 +122,7 @@ func (b *GormFilterBuilder) ApplyBaseFilter(query *gorm.DB, baseFilter *domainFi
 }
 
 // ApplyPagination applies pagination to a GORM query
-func (b *GormFilterBuilder) ApplyPagination(query *gorm.DB, pagination domainFilter.Pagination) *gorm.DB {
+func (b *GormFilterBuilder) ApplyPagination(query *gorm.DB, pagination filterModel.Pagination) *gorm.DB {
 	offset := (pagination.Page - 1) * pagination.PageSize
 	return query.Offset(offset).Limit(pagination.PageSize)
 }

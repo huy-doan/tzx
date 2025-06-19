@@ -1,0 +1,6 @@
+package object
+
+const (
+	TRANSFER_APPROVAL_FIRST_LEVEL  = 1
+	TRANSFER_APPROVAL_SECOND_LEVEL = 2
+)

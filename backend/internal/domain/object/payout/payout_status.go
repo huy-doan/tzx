@@ -3,11 +3,10 @@ package object
 type PayoutStatus int
 
 const (
-	PayoutStatusWaitingApproval PayoutStatus = 1 // 1. 承認待ち
-	PayoutStatusApproving       PayoutStatus = 2 // 2. 承認中
-	PayoutStatusWaitingTransfer PayoutStatus = 3 // 3. 振込待ち
-	PayoutStatusTransferred     PayoutStatus = 4 // 4. 振込済み
-	PayoutStatusDone            PayoutStatus = 5 // 5. 完了
+	PayoutStatusWaitingApproval PayoutStatus = 1 // 承認待ち
+	PayoutStatusApproving       PayoutStatus = 2 // 承認中
+	PayoutStatusWaitingTransfer PayoutStatus = 3 // 振込待ち
+	PayoutStatusTransferDone    PayoutStatus = 4 // 振込依頼成功
 )
 
 func (p PayoutStatus) String() string {
@@ -18,10 +17,8 @@ func (p PayoutStatus) String() string {
 		return "承認中"
 	case PayoutStatusWaitingTransfer:
 		return "振込待ち"
-	case PayoutStatusTransferred:
-		return "振込済み"
-	case PayoutStatusDone:
-		return "完了"
+	case PayoutStatusTransferDone:
+		return "振込依頼成功"
 	default:
 		return "不明"
 	}
@@ -40,11 +37,8 @@ func (p PayoutStatus) IsApproving() bool {
 func (p PayoutStatus) IsWaitingTransfer() bool {
 	return p == PayoutStatusWaitingTransfer
 }
-func (p PayoutStatus) IsTransferred() bool {
-	return p == PayoutStatusTransferred
-}
-func (p PayoutStatus) IsDone() bool {
-	return p == PayoutStatusDone
+func (p PayoutStatus) IsTransferSucceeded() bool {
+	return p == PayoutStatusTransferDone
 }
 
 func GetPayoutStatusFromInt(i int) (PayoutStatus, bool) {
@@ -56,9 +50,7 @@ func GetPayoutStatusFromInt(i int) (PayoutStatus, bool) {
 	case 3:
 		return PayoutStatusWaitingTransfer, true
 	case 4:
-		return PayoutStatusTransferred, true
-	case 5:
-		return PayoutStatusDone, true
+		return PayoutStatusTransferDone, true
 	default:
 		return 0, false
 	}

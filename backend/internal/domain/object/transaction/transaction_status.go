@@ -3,9 +3,9 @@ package object
 type TransactionStatus int
 
 const (
-	TransactionStatusDraft           TransactionStatus = 0 // 草稿
+	TransactionStatusDraft           TransactionStatus = 0 // ドラフト
 	TransactionStatusWaitingTransfer TransactionStatus = 1 // 振込待ち
-	TransactionStatusTransfered      TransactionStatus = 2 // 振込成功
+	TransactionStatusTransferred     TransactionStatus = 2 // 振込成功
 )
 
 func (t TransactionStatus) IsDraft() bool {
@@ -16,6 +16,19 @@ func (t TransactionStatus) IsWaitingTransfer() bool {
 	return t == TransactionStatusWaitingTransfer
 }
 
-func (t TransactionStatus) IsTransfered() bool {
-	return t == TransactionStatusTransfered
+func (t TransactionStatus) IsTransferred() bool {
+	return t == TransactionStatusTransferred
+}
+
+func (t TransactionStatus) String() string {
+	switch t {
+	case TransactionStatusDraft:
+		return "ドラフト"
+	case TransactionStatusWaitingTransfer:
+		return "振込待ち"
+	case TransactionStatusTransferred:
+		return "振込成功"
+	default:
+		return "承認待ち"
+	}
 }

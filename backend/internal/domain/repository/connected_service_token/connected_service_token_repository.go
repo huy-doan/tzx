@@ -10,4 +10,6 @@ import (
 type ConnectedServiceTokenRepository interface {
 	FindByServiceName(ctx context.Context, serviceName object.ConnectedServiceName) (*model.ConnectedServiceToken, error)
 	Update(ctx context.Context, service *model.ConnectedServiceToken) error
+	Create(ctx context.Context, service *model.ConnectedServiceToken) error
+	RevokeByServiceName(ctx context.Context, serviceName object.ConnectedServiceName) error
 }

@@ -1,9 +1,6 @@
 package model
 
 import (
-	"strconv"
-
-	payoutRecordModel "github.com/test-tzs/nomraeite/internal/domain/model/payout_record"
 	object "github.com/test-tzs/nomraeite/internal/domain/object/api/gmo-aozora"
 )
 
@@ -20,6 +17,8 @@ func NewTransferHeaderRequest(accessToken, idempotencyKey string) TransferHeader
 }
 
 type TransferParams struct {
+	ItemID                string
+	EdiInfo               string
 	BeneficiaryBankCode   string
 	BeneficiaryBranchCode string
 	AccountTypeCode       object.AccountTypeCode
@@ -32,23 +31,7 @@ type TransferParamsRequest struct {
 	AccountID               string
 	TransferDesignatedDate  string
 	TransferDateHolidayCode object.TransferDateHolidayCode
+	TotalCount              string
+	TotalAmount             string
 	Transfers               []TransferParams
-}
-
-func NewTransferParamsRequest(accountID string, payoutRecord *payoutRecordModel.PayoutRecord) TransferParamsRequest {
-	return TransferParamsRequest{
-		AccountID:               accountID,
-		TransferDesignatedDate:  payoutRecord.SendingDate.Format("2006-01-02"),
-		TransferDateHolidayCode: object.TransferDateHolidayCodeNextBusinessDay,
-		Transfers: []TransferParams{
-			{
-				BeneficiaryBankCode:   payoutRecord.BankAccount.BankCode.Value(),
-				BeneficiaryBranchCode: payoutRecord.BankAccount.BranchCode.Value(),
-				AccountTypeCode:       payoutRecord.BankAccount.BankAccountType.ToAccountTypeCode(),
-				AccountNumber:         payoutRecord.BankAccount.AccountNo.Value(),
-				BeneficiaryName:       string(payoutRecord.BankAccount.AccountName),
-				TransferAmount:        strconv.Itoa(int(payoutRecord.Amount)),
-			},
-		},
-	}
 }

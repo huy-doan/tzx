@@ -6,6 +6,7 @@ import (
 	objectPayout "github.com/test-tzs/nomraeite/internal/domain/object/payout"
 	"github.com/test-tzs/nomraeite/internal/infrastructure/persistence/payout/dto"
 	userDto "github.com/test-tzs/nomraeite/internal/infrastructure/persistence/user/dto"
+	persistenceUtil "github.com/test-tzs/nomraeite/internal/infrastructure/persistence/util"
 )
 
 func ToPayoutDTO(payout *modelPayout.Payout) *dto.Payout {
@@ -15,8 +16,8 @@ func ToPayoutDTO(payout *modelPayout.Payout) *dto.Payout {
 
 	return &dto.Payout{
 		ID:                    payout.ID,
-		PayoutStatus:          int(payout.PayoutStatus),
-		TransferType:          int(payout.TransferType),
+		PayoutStatus:          payout.PayoutStatus,
+		TransferType:          payout.TransferType,
 		Total:                 payout.Total,
 		TotalCount:            payout.TotalCount,
 		SendingDate:           payout.SendingDate,
@@ -25,10 +26,9 @@ func ToPayoutDTO(payout *modelPayout.Payout) *dto.Payout {
 		ApprovalID:            payout.ApprovalID,
 		UserID:                payout.UserID,
 		User:                  userDto.ToUserDTO(payout.User),
-		BaseColumnTimestamp: util.BaseColumnTimestamp{
+		BaseColumnTimestamp: persistenceUtil.BaseColumnTimestamp{
 			CreatedAt: payout.CreatedAt,
 			UpdatedAt: payout.UpdatedAt,
-			DeletedAt: payout.DeletedAt,
 		},
 	}
 }
@@ -41,7 +41,7 @@ func ToPayoutModel(dtoObj *dto.Payout) *modelPayout.Payout {
 	return &modelPayout.Payout{
 		ID:                    dtoObj.ID,
 		PayoutStatus:          objectPayout.PayoutStatus(dtoObj.PayoutStatus),
-		TransferType:          objectPayout.PayoutTransferType(dtoObj.TransferType),
+		TransferType:          dtoObj.TransferType,
 		Total:                 dtoObj.Total,
 		TotalCount:            dtoObj.TotalCount,
 		SendingDate:           dtoObj.SendingDate,
@@ -53,7 +53,6 @@ func ToPayoutModel(dtoObj *dto.Payout) *modelPayout.Payout {
 		BaseColumnTimestamp: util.BaseColumnTimestamp{
 			CreatedAt: dtoObj.CreatedAt,
 			UpdatedAt: dtoObj.UpdatedAt,
-			DeletedAt: dtoObj.DeletedAt,
 		},
 	}
 }

@@ -14,10 +14,14 @@ type TransferParamsRequest struct {
 	AccountID               string                         `json:"accountId"`
 	TransferDesignatedDate  string                         `json:"transferDesignatedDate"`
 	TransferDateHolidayCode object.TransferDateHolidayCode `json:"transferDateHolidayCode"`
+	TotalCount              string                         `json:"totalCount"`
+	TotalAmount             string                         `json:"totalAmount"`
 	Transfers               []TransferParams               `json:"transfers"`
 }
 
 type TransferParams struct {
+	ItemID                string                 `json:"itemId"`
+	EdiInfo               string                 `json:"ediInfo"`
 	BeneficiaryBankCode   string                 `json:"beneficiaryBankCode"`
 	BeneficiaryBranchCode string                 `json:"beneficiaryBranchCode"`
 	AccountTypeCode       object.AccountTypeCode `json:"accountTypeCode"`
@@ -38,6 +42,8 @@ func ToDTOTransferParamsRequest(request model.TransferParamsRequest) TransferPar
 		AccountID:               request.AccountID,
 		TransferDesignatedDate:  request.TransferDesignatedDate,
 		TransferDateHolidayCode: request.TransferDateHolidayCode,
+		TotalCount:              request.TotalCount,
+		TotalAmount:             request.TotalAmount,
 		Transfers:               ToDTOTransferParams(request.Transfers),
 	}
 }
@@ -46,6 +52,8 @@ func ToDTOTransferParams(transfers []model.TransferParams) []TransferParams {
 	var dtoTransfers []TransferParams
 	for _, transfer := range transfers {
 		dtoTransfers = append(dtoTransfers, TransferParams{
+			ItemID:                transfer.ItemID,
+			EdiInfo:               transfer.EdiInfo,
 			BeneficiaryBankCode:   transfer.BeneficiaryBankCode,
 			BeneficiaryBranchCode: transfer.BeneficiaryBranchCode,
 			AccountTypeCode:       transfer.AccountTypeCode,

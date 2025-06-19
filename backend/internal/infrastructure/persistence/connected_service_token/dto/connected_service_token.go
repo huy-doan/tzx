@@ -33,6 +33,7 @@ func (dto *ConnectedServiceToken) BeforeSave(*gorm.DB) (err error) {
 	if cfg.EncryptionKey == "" {
 		return errors.New("encryption key is not configured")
 	}
+
 	refreshToken := dto.RefreshToken
 	if refreshToken != "" {
 		dto.RefreshToken, err = utils.EncryptAESGCMString(cfg.EncryptionKey, refreshToken)

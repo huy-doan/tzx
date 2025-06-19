@@ -1,8 +1,10 @@
 package model
 
 import (
+	"fmt"
 	"time"
 
+	transactionModel "github.com/test-tzs/nomraeite/internal/domain/model/transaction"
 	userModel "github.com/test-tzs/nomraeite/internal/domain/model/user"
 	util "github.com/test-tzs/nomraeite/internal/domain/object/basedatetime"
 	object "github.com/test-tzs/nomraeite/internal/domain/object/payout"
@@ -15,17 +17,17 @@ type Payout struct {
 
 	PayoutStatus          object.PayoutStatus
 	TransferType          object.PayoutTransferType
-	Total                 float64
+	Total                 int64
 	TotalCount            int
-	SendingDate           time.Time
-	SentDate              time.Time
+	SendingDate           *time.Time
+	SentDate              *time.Time
 	AozoraTransferApplyNo string
 	ApprovalID            *int
 	UserID                int
 	User                  *userModel.User
 
 	PayoutRecordCount     int
-	PayoutRecordSumAmount float64
+	PayoutRecordSumAmount int64
 }
 
 type NewPayoutParams struct {
@@ -33,16 +35,16 @@ type NewPayoutParams struct {
 	util.BaseColumnTimestamp
 	PayoutStatus          object.PayoutStatus
 	TransferType          object.PayoutTransferType
-	Total                 float64
+	Total                 int64
 	TotalCount            int
-	SendingDate           time.Time
-	SentDate              time.Time
+	SendingDate           *time.Time
+	SentDate              *time.Time
 	AozoraTransferApplyNo string
 	ApprovalID            *int
 	UserID                int
 	User                  *userModel.User
 	PayoutRecordCount     int
-	PayoutRecordSumAmount float64
+	PayoutRecordSumAmount int64
 }
 
 func NewPayout(params NewPayoutParams) *Payout {
@@ -68,10 +70,25 @@ func (p *Payout) SetStatus(status object.PayoutStatus) {
 	p.PayoutStatus = status
 }
 
-func (p *Payout) IndividualTransfer() bool {
-	return p.TransferType.IsIndividualTransfer()
+func (p *Payout) NormalTransfer() bool {
+	return p.TransferType.IsNormalTransfer()
 }
 
 func (p *Payout) BulkTransfer() bool {
 	return p.TransferType.IsBulkTransfer()
+}
+
+// CreateFromTransactionsParams contains parameters for creating a payout from transactions
+type CreateFromTransactionsParams struct {
+	TransactionDetails []*transactionModel.TransferTransactionDetail
+	UserID             int
+}
+
+func ValidateTransactionsForPayout(transactionDetails []*transactionModel.TransferTransactionDetail) error {
+	for _, detail := range transactionDetails {
+		if !detail.IsEligibleForPayout() {
+			return fmt.Errorf("transaction %d is not eligible for payout", detail.ID)
+		}
+	}
+	return nil
 }

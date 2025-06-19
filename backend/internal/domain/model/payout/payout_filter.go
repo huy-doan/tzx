@@ -3,12 +3,12 @@ package model
 import (
 	"time"
 
-	"github.com/test-tzs/nomraeite/internal/domain/model/util"
+	filterModel "github.com/test-tzs/nomraeite/internal/domain/model/filter"
 	objectPayout "github.com/test-tzs/nomraeite/internal/domain/object/payout"
 )
 
 type PayoutFilter struct {
-	util.BaseFilter
+	filterModel.BaseFilter
 	CreatedAt    *time.Time
 	SendingDate  *time.Time
 	SentDate     *time.Time
@@ -32,11 +32,11 @@ func NewPayoutFilter() *PayoutFilter {
 }
 
 func (f *PayoutFilter) ApplyFilters() {
-	f.AddDateFilter("created_at", util.Equal, f.CreatedAt)
-	f.AddDateFilter("sending_date", util.Equal, f.SendingDate)
-	f.AddDateFilter("sent_date", util.Equal, f.SentDate)
+	f.AddDateFilter("created_at", filterModel.Equal, f.CreatedAt)
+	f.AddDateFilter("sending_date", filterModel.Equal, f.SendingDate)
+	f.AddDateFilter("sent_date", filterModel.Equal, f.SentDate)
 
 	if f.PayoutStatus != nil {
-		f.AddCondition("payout_status", util.Equal, int(*f.PayoutStatus))
+		f.AddCondition("payout_status", filterModel.Equal, int(*f.PayoutStatus))
 	}
 }
